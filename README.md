@@ -84,7 +84,7 @@ RoomBook/
 └── update_booking.php
 ```
 
-## Instalasi local
+## Instalasi Lokal
 ```
 1. Clone repository:
 git clone https://github.com/yourusername/RoomBook.git
