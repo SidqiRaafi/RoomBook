@@ -1,0 +1,1001 @@
+/* ==========================================
+   UNIVERSAL STYLES (All Pages)
+   ========================================== */
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1f2937;
+}
+
+/* Background Setup for Login Page */
+body.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/background/bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+body.login-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 0;
+}
+
+/* Background Setup for Dashboard Pages */
+.dashboard-page {
+    min-height: 100vh;
+    background-image: url('../assets/background/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: -1;
+}
+
+/* Common Width Constraint for 2K Screens */
+.top-nav, .dashboard-container {
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Top Navigation Bar (Dashboard, Manage, History) */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    background: rgba(255, 255, 255, 0.75); 
+    backdrop-filter: blur(20px);
+    padding: 16px 32px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 4px;
+    border-radius: 16px;
+}
+
+.nav-tab {
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.nav-tab.active {
+    background: white;
+    color: #059669;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav-tab.inactive {
+    color: #4b5563;
+}
+
+.nav-tab.inactive:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #111827;
+}
+
+.nav-info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.time-display, .date-display {
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logout-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: #EF4444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.logout-btn:hover {
+    background: #DC2626;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Common Container */
+.dashboard-container {
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(25px);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: #111827;
+    letter-spacing: -0.5px;
+}
+
+/* Modal Styles (All Pages) */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.active { 
+    display: flex; 
+}
+
+.modal-box {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.modal-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #111827;
+}
+
+.modal-subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.modal-form .form-group {
+    margin-bottom: 18px;
+}
+
+.modal-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #374151;
+}
+
+.modal-form .form-group input,
+.modal-form .form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.2s;
+    background: #F9FAFB;
+    font-family: inherit;
+}
+
+.modal-form .form-group input:focus,
+.modal-form .form-group select:focus {
+    outline: none;
+    border-color: #2563EB;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btn-submit-booking {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.btn-submit-booking:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.modal-alert {
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.modal-alert.success {
+    background: #D1FAE5;
+    color: #065F46;
+    border: 1px solid #A7F3D0;
+}
+
+.modal-alert.error {
+    background: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #FECACA;
+}
+
+
+/* ==========================================
+   LOGIN PAGE (index.php)
+   ========================================== */
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo-box {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper .icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+    transition: color 0.3s;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px 14px 44px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #1f2937;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+.form-group input:focus {
+    outline: none;
+    background: white;
+    border-color: #2563EB;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.form-group input:focus + .icon,
+.input-wrapper:focus-within .icon {
+    color: #2563EB;
+}
+
+.btn-signin {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-signin:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.btn-signin:active {
+    transform: translateY(0);
+}
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.alert.error {
+    background: #FEF2F2;
+    color: #DC2626;
+    border: 1px solid #FCA5A5;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 24px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   DASHBOARD PAGE (dashboard.php)
+   ========================================== */
+
+.grid-container {
+    flex: 1;
+    overflow-x: auto;
+    margin-bottom: 24px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.2) transparent;
+}
+
+.availability-grid {
+    display: grid;
+    grid-template-columns: 140px repeat(10, 1fr); 
+    gap: 12px;
+    width: 100%;
+    min-width: 1000px;
+}
+
+.room-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #374151;
+    text-align: center;
+    height: 50px;
+}
+
+.time-slot {
+    height: 50px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.time-slot.available {
+    background: rgba(16, 185, 129, 0.15);
+    color: #047857;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.time-slot.available:hover {
+    background: rgba(16, 185, 129, 0.25);
+    transform: translateY(-2px);
+    cursor: default;
+}
+
+.time-slot.booked {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6B7280;
+    border: 1px solid rgba(107, 114, 128, 0.1);
+}
+
+.dashboard-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.legend {
+    display: flex;
+    gap: 24px;
+    color: #4b5563;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.btn-add-booking {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.btn-add-booking:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
+
+
+/* ==========================================
+   MANAGE BOOKINGS PAGE (manage_bookings.php)
+   ========================================== */
+
+.booking-list-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 8px;
+}
+
+.booking-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.booking-list-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.booking-list-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.booking-list-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.booking-card {
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.booking-card:hover {
+    border-color: #4CAF50;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+}
+
+.booking-info {
+    flex: 1;
+}
+
+.booking-row {
+    display: grid;
+    grid-template-columns: 140px 20px 1fr;
+    gap: 16px;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.booking-row:last-child {
+    margin-bottom: 0;
+}
+
+.booking-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.booking-colon {
+    color: #333;
+}
+
+.booking-value {
+    color: #555;
+}
+
+.booking-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-edit,
+.btn-print {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #10B981, #059669); /* Green gradient */
+}
+
+.btn-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.btn-print {
+    background: linear-gradient(135deg, #F59E0B, #D97706); /* Orange gradient */
+}
+
+.btn-print:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-delete {
+    flex: 1;
+    padding: 15px;
+    background: linear-gradient(135deg, #EF4444, #DC2626); /* Red gradient */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.btn-delete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+.btn-submit {
+    flex: 1;
+    padding: 15px;
+    background: linear-gradient(135deg, #2563EB, #1D4ED8); /* Blue gradient */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px;
+    color: #999;
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   HISTORY PAGE (booking_history.php)
+   ========================================== */
+
+/* Add history-specific styles here when needed */
+
+
+/* ==========================================
+   RESPONSIVE (All Pages)
+   ========================================== */
+
+@media (max-width: 1200px) {
+    .availability-grid {
+        grid-template-columns: 90px repeat(10, minmax(80px, 1fr));
+    }
+    
+    .booking-row {
+        grid-template-columns: 120px 15px 1fr;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-page {
+        padding: 16px;
+    }
+    
+    .top-nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .nav-tabs {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .grid-container {
+        overflow-x: scroll;
+    }
+    
+    .booking-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .booking-actions {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
+/* ==========================================
+   PRINT PAGE STYLES
+   ========================================== */
+
+.print-page {
+    background-image: url('../assets/background/bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #f5f5f5; /* Fallback if bg.jpg not found */
+    min-height: 100vh;
+    padding: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.page-wrapper {
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Action Buttons */
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.print-btn,
+.download-btn {
+    padding: 12px 24px;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.print-btn {
+    background: linear-gradient(135deg, #10B981, #059669);
+}
+
+.print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+/* Print Container */
+.print-container {
+    background: white;
+    border: 3px solid #000;
+    padding: 100px 50px 100px 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Document Header */
+.document-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px double #000;
+}
+
+.document-header h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.permit-number {
+    font-size: 15px;
+    color: #555;
+    margin-top: 10px;
+    text-align: center; /* Center the permit number */
+}
+
+/* Document Content */
+.document-content {
+    margin: 30px 0;
+    line-height: 1.8;
+}
+
+.intro-text,
+.closing-text {
+    text-indent: 50px;
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.closing-text {
+    margin-top: 20px;
+}
+
+/* Info Table */
+.info-table {
+    margin: 20px 0;
+}
+
+.info-row {
+    display: grid;
+    grid-template-columns: 180px 20px 1fr;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.info-label {
+    font-weight: bold;
+}
+
+.info-colon {
+    text-align: center;
+}
+
+.info-value {
+    color: #333;
+}
+
+/* Signatures */
+.signatures {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.signature-box {
+    text-align: center;
+    width: 45%;
+}
+
+.signature-title {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.signature-location {
+    margin-bottom: 60px;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.signature-role {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.signature-name {
+    border-top: 2px solid #000;
+    padding-top: 8px;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 200px;
+    font-size: 15px;
+}
+
+/* Print Media Query */
+@media print {
+    .print-page {
+        background: white;
+        padding: 0;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+    
+    .page-wrapper {
+        max-width: 100%;
+    }
+    
+    .print-container {
+        border: 3px solid #000;
+        box-shadow: none;
+        padding: 40px;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .print-container {
+        padding: 30px;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .print-btn,
+    .download-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .signatures {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .signature-box {
+        width: 100%;
+    }
+}
